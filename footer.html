@@ -1,50 +1,209 @@
-<footer style="background:#18191b;color:#e3f0fc;border-top:4px solid #223566;">
-  <div style="display:flex;justify-content:space-around;max-width:1200px;margin:0 auto;padding:2.5em 0 1.5em 0;flex-wrap:wrap;gap:2em;">
-    <div>
-      <h3 style="font-size:1.22em;margin-bottom:0.5em;font-weight:bold;color:#fff;letter-spacing:0.04em;">カテゴリ</h3>
-      <ul style="list-style:none;padding:0;margin:0;">
-        <li>Linux</li>
-        <li>デバイス工作</li>
-        <li>中国語</li>
-        <li>プログラミング</li>
-      </ul>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>フッター</title>
+  <style>
+    html, body {
+      margin: 0; padding: 0; width: 100%;
+      box-sizing: border-box;
+      background: transparent;
+    }
+    .footer-main {
+      background: #222;
+      color: #fff;
+      padding: 2.5em 2em 1.5em 2em;
+      font-family: system-ui, sans-serif;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .footer-cols {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 2em;
+      max-width: 1400px;
+      margin: 0 auto 2em auto;
+    }
+    .footer-col {
+      flex: 1 1 220px;
+      min-width: 180px;
+      margin-bottom: 1em;
+    }
+    .footer-col h2 {
+      font-size: 1.7em;
+      margin: 0 0 0.4em 0;
+      font-weight: bold;
+      letter-spacing: 0.01em;
+    }
+    .footer-col ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .footer-col li {
+      font-size: 1.2em;
+      margin-bottom: 0.3em;
+      font-weight: 400;
+    }
+    .footer-bottom {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 2em;
+      max-width: 1400px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.8em;
+    }
+    .footer-logo svg {
+      width: 55px;
+      height: 55px;
+      vertical-align: middle;
+      display: inline-block;
+    }
+    .footer-logo-text {
+      font-size: 2em;
+      font-weight: 500;
+      color: #6cc1f2;
+      letter-spacing: 0.05em;
+      font-family: inherit;
+    }
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 0.5em;
+      font-size: 1.1em;
+      flex: 1 1 400px;
+    }
+    .footer-links a {
+      color: #fff;
+      text-decoration: underline;
+      margin-right: 1.2em;
+      font-weight: 500;
+      transition: color 0.2s;
+      display: inline-block;
+    }
+    .footer-links a:hover {
+      color: #6cc1f2;
+    }
+    .footer-links-row {
+      margin-bottom: 0.1em;
+      word-break: break-all;
+    }
+    .footer-cms {
+      opacity: 0.7;
+      font-size: 1em;
+      margin-top: 0.2em;
+    }
+    @media (max-width: 900px) {
+      .footer-cols, .footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.2em;
+      }
+      .footer-links {
+        align-items: flex-start;
+      }
+    }
+    @media (max-width: 600px) {
+      .footer-main {
+        padding: 1.5em 0.6em 1em 0.6em;
+      }
+      .footer-col h2 {
+        font-size: 1.2em;
+      }
+      .footer-logo-text {
+        font-size: 1.3em;
+      }
+      .footer-links {
+        font-size: 0.97em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <footer class="footer-main">
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h2>エディション</h2>
+        <ul>
+          <li>Workstation</li>
+          <li>KDE Plasma</li>
+          <li>Server</li>
+          <li>Cloud</li>
+          <li>CoreOS</li>
+          <li>IoT</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Atomic デスクトップ</h2>
+        <ul>
+          <li>Silverblue</li>
+          <li>Kinoite</li>
+          <li>Sway Atomic</li>
+          <li>Budgie Atomic</li>
+          <li>COSMIC Atomic</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>Spins</h2>
+        <ul>
+          <li>Xfce Desktop</li>
+          <li>Cinnamon デスクトップ</li>
+          <li>MATE+Compiz デスクトップ</li>
+          <li>i3 Tiling WM</li>
+          <li>LXQt デスクトップ</li>
+          <li>LXDE デスクトップ</li>
+          <li>SOAS Desktop</li>
+          <li>Sway Tiling WM</li>
+          <li>Budgie デスクトップ</li>
+          <li>Miracle Desktop</li>
+          <li>KDE Mobile Desktop</li>
+          <li>COSMIC Desktop</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h2>ラボ</h2>
+        <ul>
+          <li>アストロノミー</li>
+          <li>Comp Neuro</li>
+          <li>デザイン スイート</li>
+          <li>ゲーム</li>
+          <li>Jam</li>
+          <li>Python Classroom</li>
+          <li>サイエンス</li>
+          <li>セキュリティラボ</li>
+        </ul>
+      </div>
     </div>
-    <div>
-      <h3 style="font-size:1.22em;margin-bottom:0.5em;font-weight:bold;color:#fff;letter-spacing:0.04em;">ツール</h3>
-      <ul style="list-style:none;padding:0;margin:0;">
-        <li>Fedora</li>
-        <li>Arch Linux</li>
-        <li>Python</li>
-        <li>VSCode</li>
-      </ul>
+    <div class="footer-bottom">
+      <div class="footer-logo">
+        <!-- Fedoraロゴ（SVG） -->
+        <svg viewBox="0 0 64 64" fill="none">
+          <circle cx="32" cy="32" r="32" fill="#51A2DA"/>
+          <path d="M44 27c0-6.6-5.4-12-12-12s-12 5.4-12 12v10c0 6.6 5.4 12 12 12s12-5.4 12-12V27z" fill="#fff"/>
+          <circle cx="32" cy="39" r="3" fill="#51A2DA"/>
+        </svg>
+        <span class="footer-logo-text">fedora</span>
+      </div>
+      <div class="footer-links">
+        <div class="footer-links-row">
+          <a href="#">プライバシーステートメント</a>
+          <a href="#">法的情報</a>
+          <a href="#">行動範囲</a>
+          <a href="#">スポンサー</a>
+        </div>
+        <div class="footer-cms">
+          <a href="#">CMS</a> や <a href="#">GitHubレポジトリ</a> でこのウェブサイトをよりよくする
+        </div>
+      </div>
     </div>
-    <div>
-      <h3 style="font-size:1.22em;margin-bottom:0.5em;font-weight:bold;color:#fff;letter-spacing:0.04em;">リンク</h3>
-      <ul style="list-style:none;padding:0;margin:0;">
-        <li><a href="https://github.com/kons10" target="_top" style="color:#90cdf4;text-decoration:underline;">GitHub</a></li>
-        <li><a href="profile.html" target="_top" style="color:#90cdf4;text-decoration:underline;">自己紹介</a></li>
-      </ul>
-    </div>
-    <div>
-      <h3 style="font-size:1.22em;margin-bottom:0.5em;font-weight:bold;color:#fff;letter-spacing:0.04em;">その他</h3>
-      <ul style="list-style:none;padding:0;margin:0;">
-        <li>日記</li>
-        <li>雑記</li>
-      </ul>
-    </div>
-  </div>
-  <div style="display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;border-top:1px solid #313244;padding:1.2em 0 0.6em 0;flex-wrap:wrap;">
-    <div style="display:flex;align-items:center;gap:0.6em;font-size:1.15em;color:#b3d3fa;">
-      <img src="k10.png" alt="こんせんとアイコン" style="width:36px;height:36px;border-radius:50%;background:#fff;box-shadow:0 2px 8px #2223;">
-      <span>こんせんと</span>
-    </div>
-    <div style="display:flex;gap:1.6em;font-size:1em;">
-      <a href="#" style="color:#b3d3fa;text-decoration:underline;" target="_top">プライバシーポリシー</a>
-      <a href="#" style="color:#b3d3fa;text-decoration:underline;" target="_top">免責事項</a>
-      <a href="#" style="color:#b3d3fa;text-decoration:underline;" target="_top">お問合せ</a>
-    </div>
-  </div>
-  <div style="text-align:center;color:#b3d3fa;padding:1em 0 0.8em 0;font-size:0.97em;">
-    <small>&copy; 2025 こんせんと</small>
-  </div>
-</footer>
+  </footer>
+</body>
+</html>
