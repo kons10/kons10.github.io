@@ -1,11 +1,117 @@
-<header style="background:linear-gradient(90deg,#223566 80%,#294e87 100%);color:#fff;box-shadow:0 2px 8px #132c4a60;">
-  <div style="display:flex;align-items:center;max-width:1100px;margin:0 auto;padding:0.5em 1.5em;min-height:56px;">
-    <img src="k10.png" alt="こんせんとアイコン" style="width:40px;height:40px;border-radius:50%;background:#fff;margin-right:1em;box-shadow:0 2px 10px #132c4a45;border:2px solid #fff;">
-    <span style="font-size:1.3em;font-weight:bold;letter-spacing:0.08em;color:#fff;margin-right:auto;white-space:nowrap;">こんせんと</span>
-    <nav style="display:flex;gap:1.5em;">
-      <a href="index.html" style="color:#e3f0fc;text-decoration:none;font-weight:500;font-size:1.1em;padding:0.4em 0;" target="_top">ホーム</a>
-      <a href="profile.html" style="color:#e3f0fc;text-decoration:none;font-weight:500;font-size:1.1em;padding:0.4em 0;" target="_top">プロフィール</a>
-      <a href="links.html" style="color:#e3f0fc;text-decoration:none;font-weight:500;font-size:1.1em;padding:0.4em 0;" target="_top">リンク</a>
-    </nav>
+<style>
+  /* ヘッダー全体 */
+  .nav-header {
+    width: 100vw;
+    min-width: 100%;
+    box-sizing: border-box;
+    background: #223a6d;
+    color: #fff;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    height: 56px;
+  }
+  .nav-logo {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-left: 1.2em;
+    letter-spacing: 0.05em;
+  }
+  .nav-menu {
+    display: flex;
+    gap: 2em;
+    margin-right: 1.5em;
+    align-items: center;
+    transition: right 0.2s;
+  }
+  .nav-menu a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1em;
+    padding: 0.2em 0.7em;
+    border-radius: 4px;
+    transition: background 0.2s;
+  }
+  .nav-menu a:hover {
+    background: #3357a5;
+  }
+  /* ハンバーガー */
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin-right: 0.5em;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 20;
+  }
+  .nav-toggle span {
+    width: 28px;
+    height: 4px;
+    margin: 3px 0;
+    background: #fff;
+    border-radius: 2px;
+    display: block;
+    transition: 0.3s;
+  }
+
+  /* レスポンシブ */
+  @media (max-width: 700px) {
+    .nav-menu {
+      position: fixed;
+      right: -200px;
+      top: 56px;
+      flex-direction: column;
+      background: #223a6d;
+      width: 180px;
+      height: calc(100vh - 56px);
+      gap: 1.2em;
+      padding: 1.5em 0 0 0;
+      box-shadow: -6px 0 16px #0005;
+      z-index: 19;
+      transition: right 0.2s;
+    }
+    .nav-menu.open {
+      right: 0;
+    }
+    .nav-toggle {
+      display: flex;
+    }
+  }
+</style>
+<nav class="nav-header">
+  <div class="nav-logo">こんせんと</div>
+  <div class="nav-menu" id="navMenu">
+    <a href="index.html">ホーム</a>
+    <a href="profile.html">プロフィール</a>
+    <a href="links.html">リンク</a>
   </div>
-</header>
+  <button class="nav-toggle" id="navToggle" aria-label="メニュー">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+<script>
+  // ハンバーガーメニュー開閉
+  document.addEventListener("DOMContentLoaded", function() {
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    navToggle.addEventListener('click', function() {
+      navMenu.classList.toggle('open');
+    });
+    // メニュークリックで自動で閉じる（スマホ用）
+    navMenu.addEventListener('click', function(e){
+      if(e.target.tagName === 'A' && navMenu.classList.contains('open')){
+        navMenu.classList.remove('open');
+      }
+    });
+  });
+</script>
