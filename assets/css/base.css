@@ -85,6 +85,11 @@ html, body {
 }
 
 /* フッタースタイル */
+footer{
+  overflow: hidden;
+  border: none;
+}
+
 .footer-main {
   background: #222;
   color: #fff;
