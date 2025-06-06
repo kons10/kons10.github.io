@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/assets/css/base.css">
+</head>
+<body>
+  <nav class="nav-header">
+    <div class="nav-logo">こんせんと</div>
+    <div class="nav-links" id="navLinks">
+      <a href="/" target="_parent">ホーム</a>
+      <a href="/profile.html" target="_parent">プロフィール</a>
+      <a href="/links.html" target="_parent">リンク</a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="メニュー">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+  <script>
+    // ハンバーガー押されたら親に通知
+    document.getElementById('navToggle').onclick = function() {
+      window.parent.postMessage({type: "burgerClick"}, "*");
+    };
+    // 親から「バツ状態」指示きたら三本線をアニメ
+    window.addEventListener("message", function(e){
+      if(e.data.type === "setBurgerActive") {
+        document.getElementById('navToggle').classList.add('active');
+      }
+      if(e.data.type === "setBurgerInactive") {
+        document.getElementById('navToggle').classList.remove('active');
+      }
+    });
+  </script>
+</body>
+</html>

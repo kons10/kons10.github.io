@@ -4,153 +4,21 @@
   <meta charset="UTF-8">
   <title>こんせんと | トップページ</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <style>
-    body {
-      margin: 0; padding: 0; min-height: 100vh;
-      background: linear-gradient(120deg, #2b6cb0 0%, #63b3ed 100%);
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-    header, footer {
-      width: 100%;
-      margin: 0; padding: 0; border: none;
-      display: block;
-      flex-shrink: 0;
-    }
-    header iframe, footer iframe {
-      width: 100%;
-      border: none;
-      display: block;
-      background: transparent;
-      height: 56px;
-    }
-    main {
-      flex: 1 1 auto;
-      max-width: 800px;
-      margin: 48px auto;
-      padding: 2.5em 1.5em;
-      border-radius: 16px;
-      color: #fff;
-      background: #ffffff18;
-      box-shadow: 0 2px 12px #0006;
-      text-align: center;
-      width: 100%;
-      box-sizing: border-box;
-    }
-    /* メニューの基本非表示 */
-    .side-menu {
-      display: none;
-      position: fixed;
-      right: 0; top: 56px;
-      width: 180px; height: calc(100vh - 56px);
-      background: #223a6d;
-      color: #fff;
-      box-shadow: -6px 0 16px #0005;
-      z-index: 9999;
-      flex-direction: column;
-      gap: 0;
-      padding: 1.5em 1em 0 1em;
-      font-size: 1.05em;
-      transition: right 0.2s;
-    }
-    .side-menu.open {
-      display: flex;
-    }
-    .side-menu a {
-      display: block;
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-      border-radius: 4px;
-      padding: 0.4em 0.5em;
-      margin-bottom: 1.2em;
-      font-size: 1.08em;
-      transition: background 0.2s;
-    }
-    .side-menu a:last-child {
-      margin-bottom: 0;
-    }
-    /* 横長の時はメニュー消す */
-    .hide-hamburger #sideMenu {
-      display: none !important;
-    }
-    /* フッター固定 */
-    footer {
-      position: relative;
-      z-index: 1;
-    }
-  </style>
+  <link rel="stylesheet" href="/assets/css/base.css">
 </head>
 <body>
   <header>
-    <iframe id="headerFrame" src="header.html" title="ヘッダー"></iframe>
+    <iframe id="headerFrame" src="/assets/html/header.html" title="ヘッダー"></iframe>
   </header>
   <main>
     <h1>ようこそ「こんせんと」のホームページへ！</h1>
     <p>ここがメインコンテンツやで。</p>
   </main>
   <nav class="side-menu" id="sideMenu">
-    <a href="index.html">ホーム</a>
-    <a href="profile.html">プロフィール</a>
-    <a href="links.html">リンク</a>
+    <a href="/">ホーム</a>
+    <a href="/profile.html">プロフィール</a>
+    <a href="/links.html">リンク</a>
   </nav>
-  <footer>
-    <iframe id="footerFrame" src="footer.html" title="フッター"></iframe>
-  </footer>
-  <script>
-    // メニュー開閉とバツ制御
-    let menuOpen = false;
-    window.addEventListener("message", function(e){
-      if(e.data.type === "burgerClick") {
-        // 縦長の時だけ
-        if(window.innerHeight > window.innerWidth) {
-          menuOpen = !menuOpen;
-          const menu = document.getElementById("sideMenu");
-          const headerFrame = document.getElementById("headerFrame").contentWindow;
-          if(menuOpen) {
-            menu.classList.add("open");
-            headerFrame.postMessage({type:"setBurgerActive"},"*");
-          } else {
-            menu.classList.remove("open");
-            headerFrame.postMessage({type:"setBurgerInactive"},"*");
-          }
-        }
-      }
-    });
-    document.getElementById("sideMenu").addEventListener("click", function(e){
-      if(e.target.tagName === "A") {
-        menuOpen = false;
-        this.classList.remove("open");
-        document.getElementById("headerFrame").contentWindow.postMessage({type:"setBurgerInactive"},"*");
-      }
-    });
-
-    // 縦長だけハンバーガー出す
-    function updateHamburgerMode() {
-      const isPortrait = window.innerHeight > window.innerWidth;
-      document.body.classList.toggle("hide-hamburger", !isPortrait);
-      // メニュー閉じる
-      if(!isPortrait && menuOpen) {
-        menuOpen = false;
-        document.getElementById("sideMenu").classList.remove("open");
-        document.getElementById("headerFrame").contentWindow.postMessage({type:"setBurgerInactive"},"*");
-      }
-    }
-    window.addEventListener("resize", updateHamburgerMode);
-    window.addEventListener("orientationchange", updateHamburgerMode);
-    updateHamburgerMode(); // 初期判定
-
-    // iframe高さ自動調整（header/footer）
-    window.addEventListener("message", function(event) {
-      if(event.data.type === "headerHeight") {
-        document.getElementById("headerFrame").style.height = event.data.height + "px";
-      }
-      if(event.data.type === "footerHeight") {
-        document.getElementById("footerFrame").style.height = event.data.height + "px";
-      }
-    }, false);
-  </script>
+  <script src="/assets/js/footer.js"></script>
 </body>
 </html>
