@@ -5,6 +5,15 @@ html, body {
   width: 100%;
   box-sizing: border-box;
   background: transparent;
+  font-family: 
+    "Microsoft YaHei",        /* 1. 中国語簡体字 (Windows) */
+    "Microsoft JhengHei",     /* 2. 中国語繁体字 (Windows) */
+    "Hiragino Sans GB",       /* 4. 日本語フォントの中国語版 (macOS) */
+    "Noto Sans CJK SC",       /* 3. CJK統合フォント (簡体字) */
+    "Noto Sans CJK TC",       /* 3. CJK統合フォント (繁体字) */
+    "Noto Sans CJK JP",       /* 3. CJK統合フォント (日本語) */
+    "Yu Gothic",              /* 5. 日本語フォント (Windows) */
+    sans-serif;               /* 6. フォールバック */
 }
 
 /* ヘッダースタイル */
@@ -17,6 +26,7 @@ html, body {
   justify-content: space-between;
   box-sizing: border-box;
   position: relative;
+  font-family: inherit; /* bodyのフォントを継承 */
 }
 
 .nav-logo {
@@ -125,6 +135,7 @@ main {
   text-align: center;
   width: 100%;
   box-sizing: border-box;
+  font-family: inherit; /* bodyのフォントを継承 */
 }
 
 /* サイドメニュースタイル */
@@ -144,6 +155,7 @@ main {
   padding: 1.5em 1em 0 1em;
   font-size: 1.05em;
   transition: right 0.2s;
+  font-family: inherit;
 }
 
 .side-menu.open {
@@ -181,7 +193,13 @@ footer {
   color: #f1f1f5;
   padding: 40px 0 30px 0;
   text-align: center;
-  font-family: 'Noto Sans JP', sans-serif;
+  font-family: 
+    "Noto Sans CJK JP",       /* 日本語を優先 */
+    "Yu Gothic",
+    "Microsoft YaHei",
+    "Microsoft JhengHei",
+    "Hiragino Sans GB",
+    sans-serif;
   width: 100%;
   height: 100vh;
   box-sizing: border-box;
