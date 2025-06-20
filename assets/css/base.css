@@ -1,4 +1,6 @@
-/* 共通スタイル */
+/* =========================
+   共通フォント＆リセット
+   ========================= */
 html, body {
   margin: 0;
   padding: 0;
@@ -6,17 +8,48 @@ html, body {
   box-sizing: border-box;
   background: transparent;
   font-family: 
-    "Microsoft YaHei",        /* 1. 中国語簡体字 (Windows) */
-    "Microsoft JhengHei",     /* 2. 中国語繁体字 (Windows) */
-    "Hiragino Sans GB",       /* 4. 日本語フォントの中国語版 (macOS) */
-    "Noto Sans CJK SC",       /* 3. CJK統合フォント (簡体字) */
-    "Noto Sans CJK TC",       /* 3. CJK統合フォント (繁体字) */
-    "Noto Sans CJK JP",       /* 3. CJK統合フォント (日本語) */
-    "Yu Gothic",              /* 5. 日本語フォント (Windows) */
-    sans-serif;               /* 6. フォールバック */
+    "Microsoft YaHei",        /* 中国語簡体字 (Windows) */
+    "Microsoft JhengHei",     /* 中国語繁体字 (Windows) */
+    "Hiragino Sans GB",       /* 日本語フォントの中国語版 (macOS) */
+    "Noto Sans CJK SC",       /* CJK統合フォント (簡体字) */
+    "Noto Sans CJK TC",       /* CJK統合フォント (繁体字) */
+    "Noto Sans CJK JP",       /* CJK統合フォント (日本語) */
+    "Yu Gothic",              /* 日本語フォント (Windows) */
+    sans-serif;               /* フォールバック */
 }
 
-/* ヘッダースタイル */
+/* =========================
+   ヘッダー（iframe固定表示）
+   ========================= */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  height: 56px;
+  background: transparent;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+  display: block;
+  flex-shrink: 0;
+}
+
+#headerFrame {
+  width: 100%;
+  min-width: 0;
+  height: 56px;
+  border: none;
+  display: block;
+  pointer-events: auto;
+  background: transparent;
+}
+
+/* =========================
+   ヘッダー中身（header.html用）
+   ========================= */
 .nav-header {
   width: 100%;
   height: 56px;
@@ -26,7 +59,7 @@ html, body {
   justify-content: space-between;
   box-sizing: border-box;
   position: relative;
-  font-family: inherit; /* bodyのフォントを継承 */
+  font-family: inherit;
 }
 
 .nav-logo {
@@ -38,95 +71,41 @@ html, body {
   white-space: nowrap;
 }
 
-.nav-links {
+.nav-icon-links {
   display: flex;
   gap: 2em;
   margin-right: 1.5em;
   align-items: center;
 }
 
-.nav-links a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1em;
-  padding: 0.2em 0.7em;
-  border-radius: 4px;
-  transition: background 0.2s;
-}
-
-.nav-links a:hover {
-  background: #3357a5;
-}
-
-.nav-toggle {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  margin-right: 1.2em;
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 120;
-}
-
-.nav-toggle span {
-  width: 28px;
-  height: 4px;
-  margin: 3px 0;
-  background: #fff;
-  border-radius: 2px;
+.nav-icon-links a img {
+  width: 40px;
+  height: 40px;
   display: block;
-  transition: 0.3s;
+  filter: brightness(0.98);
+  transition: filter 0.2s, transform 0.2s;
 }
 
-.nav-toggle.active span:nth-child(1) {
-  transform: translateY(7px) rotate(45deg);
+.nav-icon-links a:hover img {
+  filter: brightness(1.2);
+  transform: translateY(-2px) scale(1.08);
 }
 
-.nav-toggle.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.nav-toggle.active span:nth-child(3) {
-  transform: translateY(-7px) rotate(-45deg);
-}
-
-/* メインコンテンツスタイル */
+/* =========================
+   メインコンテンツ部分
+   ========================= */
 body {
-  margin: 0;
-  padding: 0;
   min-height: 100vh;
   background: linear-gradient(120deg, #2b6cb0 0%, #63b3ed 100%);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-}
-
-header {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  border: none;
-  display: block;
-  flex-shrink: 0;
-}
-
-header iframe {
-  width: 100%;
-  border: none;
-  display: block;
-  background: transparent;
-  height: 56px;
 }
 
 main {
   flex: 1 1 auto;
   max-width: 800px;
-  margin: 48px auto;
+  margin: 56px auto 0 auto;
   padding: 2.5em 1.5em;
   border-radius: 16px;
   color: #fff;
@@ -135,66 +114,38 @@ main {
   text-align: center;
   width: 100%;
   box-sizing: border-box;
-  font-family: inherit; /* bodyのフォントを継承 */
-}
-
-/* サイドメニュースタイル */
-.side-menu {
-  display: none;
-  position: fixed;
-  right: 0;
-  top: 56px;
-  width: 180px;
-  height: calc(100vh - 56px);
-  background: #223a6d;
-  color: #fff;
-  box-shadow: -6px 0 16px #0005;
-  z-index: 9999;
-  flex-direction: column;
-  gap: 0;
-  padding: 1.5em 1em 0 1em;
-  font-size: 1.05em;
-  transition: right 0.2s;
   font-family: inherit;
 }
 
-.side-menu.open {
-  display: flex;
+/* ヘッダーがfixedなのでmainを下げる */
+main {
+  padding-top: 1.5em;
+}
+@media (max-width: 700px) {
+  main {
+    margin-top: 44px;
+  }
+}
+@media (min-width: 701px) {
+  main {
+    margin-top: 56px;
+  }
 }
 
-.side-menu a {
-  display: block;
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  border-radius: 4px;
-  padding: 0.4em 0.5em;
-  margin-bottom: 1.2em;
-  font-size: 1.08em;
-  transition: background 0.2s;
-}
-
-.side-menu a:last-child {
-  margin-bottom: 0;
-}
-
-.hide-hamburger #sideMenu {
-  display: none !important;
-}
-
-/* フッタースタイル */
+/* =========================
+   フッター
+   ========================= */
 footer {
   overflow: hidden;
   border: none;
 }
-
 .footer-main {
   background: #23232b;
   color: #f1f1f5;
   padding: 40px 0 30px 0;
   text-align: center;
   font-family: 
-    "Noto Sans CJK JP",       /* 日本語を優先 */
+    "Noto Sans CJK JP",
     "Yu Gothic",
     "Microsoft YaHei",
     "Microsoft JhengHei",
@@ -274,7 +225,49 @@ footer {
   text-decoration: underline;
 }
 
-/* メディアクエリ */
+/* =========================
+   レスポンシブ対応
+   ========================= */
+@media (max-width: 600px) {
+  .nav-logo {
+    font-size: 1em;
+    margin-left: 0.6em;
+  }
+  .nav-icon-links {
+    gap: 1em;
+    margin-right: 0.6em;
+  }
+  .nav-icon-links a img {
+    width: 32px;
+    height: 32px;
+  }
+  .nav-header, #headerFrame, header {
+    height: 44px !important;
+    min-height: 44px !important;
+    max-height: 44px !important;
+  }
+  #headerFrame {
+    height: 44px !important;
+    min-height: 44px !important;
+    max-height: 44px !important;
+  }
+  main {
+    margin-top: 44px !important;
+  }
+  .footer-main {
+    padding: 1.5em 0.6em 1em 0.6em;
+  }
+  .footer-col h2 {
+    font-size: 1.2em;
+  }
+  .footer-logo-text {
+    font-size: 1.3em;
+  }
+  .footer-links {
+    font-size: 0.97em;
+  }
+}
+
 @media (max-width: 900px) {
   .footer-cols, .footer-bottom {
     flex-direction: column;
@@ -287,57 +280,21 @@ footer {
 }
 
 @media (max-width: 700px), (orientation: portrait) {
-  .nav-links {
-    display: none !important;
-  }
-  .nav-toggle {
-    display: flex !important;
-  }
-
-  /* フッターのレスポンシブ対応 */
   .footer-main {
     padding: 30px 20px;
   }
-  
   .footer-social-links {
     gap: 15px;
   }
-  
   .footer-social-links a {
     width: 42px;
     height: 42px;
   }
-  
   .footer-social-links img {
     width: 20px;
     height: 20px;
   }
-  
   .footer-legal {
     font-size: 13px;
-  }
-}
-
-@media (min-width: 701px) and (orientation: landscape) {
-  .nav-links {
-    display: flex !important;
-  }
-  .nav-toggle {
-    display: none !important;
-  }
-}
-
-@media (max-width: 600px) {
-  .footer-main {
-    padding: 1.5em 0.6em 1em 0.6em;
-  }
-  .footer-col h2 {
-    font-size: 1.2em;
-  }
-  .footer-logo-text {
-    font-size: 1.3em;
-  }
-  .footer-links {
-    font-size: 0.97em;
   }
 }

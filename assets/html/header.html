@@ -1,43 +1,10 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
   <link rel="stylesheet" href="/assets/css/base.css">
-</head>
-<body>
-  <nav class="nav-header">
-    <div class="nav-logo">こんせんと</div>
-    <div class="nav-links" id="navLinks">
-      <a href="/" target="_parent">ホーム</a>
-      <a href="/profile.html" target="_parent">プロフィール</a>
-      <a href="/links.html" target="_parent">リンク</a>
-    </div>
-    <button class="nav-toggle" id="navToggle" aria-label="メニュー">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+<div class="nav-header">
+  <div class="nav-logo">こんせんと</div>
+  <nav class="nav-icon-links">
+    <a href="/" target="_top"><img src="/assets/svg/home.svg" alt="ホーム"></a>
+    <a href="/profile.html" target="_top"><img src="/assets/svg/person.svg" alt="プロフィール"></a>
+    <a href="/links.html" target="_top"><img src="/assets/svg/link.svg" alt="リンク"></a>
+    <a href="/downloads.html" target="_top"><img src="/assets/svg/dl.svg" alt="Downloads"></a>
   </nav>
-  <script>
-// ハンバーガー押したら親ウィンドウに通知
-document.addEventListener("DOMContentLoaded", function() {
-  var burger = document.querySelector(".nav-toggle");
-  if (burger) {
-    burger.addEventListener("click", function() {
-      parent.postMessage({type: "burgerClick"}, "*");
-    });
-  }
-});
-
-// 親からの指示でハンバーガーアイコンのactive切り替え
-window.addEventListener("message", function(e) {
-  if(e.data.type === "setBurgerActive") {
-    document.querySelector(".nav-toggle").classList.add("active");
-  }
-  if(e.data.type === "setBurgerInactive") {
-    document.querySelector(".nav-toggle").classList.remove("active");
-  }
-});
-  </script>
-</body>
-</html>
+</div>
