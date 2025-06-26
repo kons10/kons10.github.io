@@ -18,7 +18,7 @@ html, body {
     sans-serif;               /* フォールバック */
 }
 
-img {
+img.emoji {
    width: 20vh;
 }
 
