@@ -4,14 +4,48 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="/assets/css/base.css">
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+  
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <script type="importmap">
+    {
+      "imports": {
+        "@material/web/": "https://esm.run/@material/web/"
+      }
+    }
+  </script>
+  <script type="module">
+    import '@material/web/all.js';
+    import {styles as typescaleStyles} from '@material/web/typography/md-typescale-styles.js';
+
+    document.adoptedStyleSheets.push(typescaleStyles.styleSheet);
+  </script>
 </head>
 
   <div class="nav-header">
   <div class="nav-logo">こんせんと</div>
   <nav class="nav-icon-links">
-    <a href="/" target="_top"><img src="/assets/svg/home.svg" alt="ホーム"></a>
-    <a href="/profile.html" target="_top"><img src="/assets/svg/person.svg" alt="プロフィール"></a>
-    <a href="/links.html" target="_top"><img src="/assets/svg/link.svg" alt="リンク"></a>
-    <a href="/downloads.html" target="_top"><img src="/assets/svg/dl.svg" alt="Downloads"></a>
+    
+    <a href="/" target="_top">
+        <md-icon-button>
+            <md-icon>home</md-icon>
+        </md-icon-button>
+    </a>
+    <a href="/profile.html" target="_top">
+        <md-icon-button>
+            <md-icon>person</md-icon>
+        </md-icon-button>
+    </a>
+    <a href="/links.html" target="_top">
+        <md-icon-button>
+            <md-icon>link</md-icon>
+        </md-icon-button>
+    </a>
+    <a href="/downloads.html" target="_top">
+        <md-icon-button>
+            <md-icon>download</md-icon>
+        </md-icon-button>
+    </a>
   </nav>
 </div>
