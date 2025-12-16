@@ -162,8 +162,6 @@ footer {
   box-sizing: border-box;
 }
 
-/* --- ここから base (1).css のフッター詳細部分を復活 --- */
-
 .footer-social-container {
   margin-bottom: 20px;
 }
@@ -232,9 +230,6 @@ footer {
   color: #8fd3ff;
   text-decoration: underline;
 }
-
-/* --- ここまで base (1).css のフッター詳細部分を復活 --- */
-
 
 /* =========================
    レスポンシブ対応
