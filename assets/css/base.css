@@ -1,4 +1,9 @@
 /* =========================
+   Material UI＆Roboto
+   ========================= */
+@import url('https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+/* =========================
    共通フォント＆リセット
    ========================= */
 html, body {
@@ -8,9 +13,7 @@ html, body {
   box-sizing: border-box;
   background: transparent;
   font-family: 
-    "Microsoft YaHei",        /* 中国語簡体字 (Windows) */
-    "Microsoft JhengHei",     /* 中国語繁体字 (Windows) */
-    "Hiragino Sans GB",       /* 日本語フォントの中国語版 (macOS) */
+    "Roboto",                 /* 英文フォント */
     "Noto Sans CJK SC",       /* CJK統合フォント (簡体字) */
     "Noto Sans CJK TC",       /* CJK統合フォント (繁体字) */
     "Noto Sans CJK JP",       /* CJK統合フォント (日本語) */
