@@ -1,4 +1,11 @@
 /* =========================
+   Material UI＆Roboto
+   ========================= */
+@import url('https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+
+/* =========================
    色変数定義
    ========================= */
 :root {
@@ -38,12 +45,6 @@
     --divider-color: rgba(255, 255, 255, 0.1);
   }
 }
-
-/* =========================
-   Material UI＆Roboto
-   ========================= */
-@import url('https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
 /* =========================
    共通フォント＆リセット
